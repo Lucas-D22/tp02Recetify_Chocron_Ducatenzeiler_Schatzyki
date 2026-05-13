@@ -17,7 +17,13 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult GenerarReceta(receta receta){
+        ViewBag.Plato = receta.DeterminarPlato();
+        ViewBag.Dificultad = receta.determinarDificultad();
+        ViewBag.Tiempo = receta.calcularTiempo();
 
+        return View("resultado");
+    }
     public IActionResult Privacy()
     {
         return View();

@@ -5,6 +5,11 @@ public class receta{
 // true = caliente false = frio
     public int presupuestoPesos {get; set;}
     public int cocinaPara {get; set;}
+
+
+
+
+    
     public int calcularEdad()
     {
         DateTime hoy = DateTime.Today;
@@ -79,23 +84,17 @@ else{
 
 
 public string determinarDificultad(){
-    string dificultad;
-    if(presupuestoPesos < 3000){
-        if (cocinaPara >= 1 && <= 3){
-         dificultad = "principiante";
-        }
-        else if (cocinaPara >= 4 && <= 7){
-            dificultad = "intermedio";
-        }
+    if(presupuestoPesos < 3000 && cocinaPara <= 1 && cocinaPara >= 3){
+        return "principiante";
     }
-    else if (presupuestoPesos >= 3000 && <= 7000)
-    {
-        if(CantidadPersonas >= 1 && <= 3){
-            dificultad = "intermedio":
-        }
-        else if (CantidadPersonas >= 4){
-            dificultad = "intermedio";
-        }
+    else if(presupuestoPesos > 3000 && cocinaPara <= 1 && cocinaPara >= 7){
+        return "intermedio";
+    }
+    else if(presupuestoPesos > 7000 && cocinaPara >= 8){
+        return "avanzado";
+    }
+    else{
+        return null;
     }
 }
 
